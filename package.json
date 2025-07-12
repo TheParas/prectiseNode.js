@@ -1,0 +1,19 @@
+{
+  "name": "nodepractise",
+  "version": "1.0.0",
+  "description": "its a node.js practise which contains, practise code, excercises & learnings.",
+  "main": "practise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheParas/prectiseNode.js.git"
+  },
+  "author": "Paras Ramawat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheParas/prectiseNode.js/issues"
+  },
+  "homepage": "https://github.com/TheParas/prectiseNode.js#readme"
+}
