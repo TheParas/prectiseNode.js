@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TheParas/prectiseNode.js#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
