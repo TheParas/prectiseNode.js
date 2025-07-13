@@ -56,9 +56,23 @@ const data = fs.readFileSync('notes.txt', 'utf-8');
 console.log(data);
 
 */
-//day2 5th,
-const os = require('os');
-console.log(os.totalmem());
-console.log(os.freemem());
-console.log(os.platform());
-console.log(os.cpus().length);
+// day2 5th,
+// const os = require('os');
+// console.log(os.totalmem());
+// console.log(os.freemem());
+// console.log(os.platform());
+// console.log(os.cpus().length);
+// 
+// day 2 6th
+var _ = require('lodash');
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(_.sumBy(array, (n) => {
+  if((n % 2) ===0) {
+return n;
+}else return 0;
+
+})); // lodash is a library which has many functions, we can use it by installing it using npm i lodash 
+var _ = require('lodash');
+let array2 = [1, 2, 3, 4, 8, 9];
+console.log(_.sumBy(array2, (n) => n % 2 === 0 ? n : 0)); // this is a short form of the above code, it is called ternary operator, it is used to shorten the code, it is like if else statement, but in one line.
+
