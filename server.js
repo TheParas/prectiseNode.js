@@ -48,3 +48,21 @@ app.listen(3000, () => {
 //get hai isliye data de rhe hain, post hota toh kuch aur karte , delete, patch hota toh kuch aur karte ..
 //dal mang liye toh nhi de payega..
 //for custumized idli we get the JSON object, in the web browser.
+//Ans 4.b const express = require('express')
+// const app = express()
+// app.get('/', (req, res) => {
+//   res.send('Hello, Wprld!')
+// })
+// app.listen(3000)
+//ans 5.a JSON.parse( {"product": "Laptop", "price": 999.99})
+//ans 5.b JSON.stringify({ "name": "Bob", "age": 30 })
+//ans 6.
+app.get('/todayWeather', (req, res) => {
+ let temp = {
+    currentTemp: 30,
+    conditions: 'Sunny',
+    humidity: 50,
+    city: 'Delhi',
+  }
+  res.send(temp)
+})
