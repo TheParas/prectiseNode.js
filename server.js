@@ -58,4 +58,7 @@ console.log(data);
 */
 //day2 5th,
 const os = require('os');
-console.log(os);
+console.log(os.totalmem());
+console.log(os.freemem());
+console.log(os.platform());
+console.log(os.cpus().length);
