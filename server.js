@@ -20,12 +20,31 @@ app.get('/', (req, res) => {
 // '/' --> agar koi bhi address ka baad forward slash likhta hai toh usko vo data milega
 //function m 2 parameters hain --> request & response
 //koi bhi / enter karega address ka bad to kya response milega ? , jo res.send m lika hai.
-// ab server ko run karte hain, node server.js ki help se in terminal.
+// ab server ko run karte hain, node server.js ki help se inside terminal.
 //abhi server k pass menu m 1 hi chiz hai, ab usse 40 baat puchoge toh usse nhi pta.
 
-app.listen(3000) //3000 is the port number,room no of a waiter.
+//app.listen(3000) //3000 is the port number,room no of a waiter.
+//hogya , ab ham apne web browser m localHost:3000/ likhenge toh hame welcome to resturant ka message milega
+app.get('/paneerTikka', (req, res) => {
+  res.send('Panner Tikka is available at 200rs')
+})
+app.get('/idli', (req, res) => {
+  let custumizedIdli = {
+    idliType: 'rawaIdli',
+    size: 'big',
+    is_chutney: true,
+    is_onion: false,
+    is_sambhar: true,
+  }
+res.send(custumizedIdli)
+})
 
-
-// const express = require('express')
-// const app = express()
-// app.listen(3000)
+app.listen(3000, () => {
+  console.log('Server is running on port 3000')
+}) //ab server jinda hai ya nhi kese ptaa chalega, toh ham 1 function pass kerr denge ,app.listen(3000) bta rha ki 3000 pe hamara server active hai,toh ham 1 function run kerwa denge,jo btata reh. 
+// agar server ko maar de - by cntrl+c in terminal, toh server band ho jayega. now trying in broweser, the site cannot be reached.
+//wapas jinda kerr do nodemon server.js
+//wapas order sunne k liye ready hai sirf yhi 3 order sunega kuunki hamne menu m sirf yhi 3 order di hain. 
+//get hai isliye data de rhe hain, post hota toh kuch aur karte , delete, patch hota toh kuch aur karte ..
+//dal mang liye toh nhi de payega..
+//for custumized idli we get the JSON object, in the web browser.
