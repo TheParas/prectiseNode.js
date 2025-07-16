@@ -66,3 +66,6 @@ app.get('/todayWeather', (req, res) => {
   }
   res.send(temp)
 })
+app.post('/items', (req, res) => { res.send(console.log('data is saved'))
+  
+});
