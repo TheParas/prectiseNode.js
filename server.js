@@ -105,6 +105,24 @@ app.post('/person',async (req, res) =>
     })
     
 
+    app.get('/person/:work', async (req, res) => {
+  try {
+    const workType = req.params.work; // Extract the work type from the URL parameter
+    if(workType === 'chef' || workType === 'waiter' || workType === 'manager') {
+    // Assuming you already have a Person model and MongoDB connection set up
+    const persons = await Person.find({ work: workType });
+
+    // Send the list of persons with the specified work type as a JSON response
+    res.json(persons);
+    }else{
+    res.status(404).json({ error: 'Invalid work type' });
+    }
+ } catch (error) {
+    console.error('Error fetching persons:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000')
 }) 
