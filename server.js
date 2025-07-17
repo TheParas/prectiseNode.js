@@ -9,6 +9,7 @@ app.use(bodyParser.json()); //req.body m daal deta hai data ko, hamme bas use ke
 
 const Person = require('./models/person'); // Import the Person model
 const MenuItem = require('./models/menuItem'); 
+const Task = require('./models/task'); // Import the Task model
 
 app.get('/', (req, res) => {
   res.send('Welcome to resturant')
@@ -52,6 +53,56 @@ app.post('/person',async (req, res) =>
          }
     })
   
+    app.post('/menu', async (req, res) => {
+      try {
+          const data = req.body; //data aayega toh use req.body se le lenge 
+          const menuItem = new MenuItem(data); 
+          const response = await menuItem.save(); //save the new menu item to the database
+          console.log('Menu item saved');
+          res.status(200).json(data); //send the data as response back to the client
+      } catch (error) {
+          console.error('Error:', error);
+          res.status(500).json({ error: 'Internal Server Error' }); //send error response
+      }
+    }
+    )
+
+    app.get('/menu', async (req, res) => {
+      try {
+        const data = await MenuItem.find(); //find() method se sabhi menu items ka data mil jayega
+        console.log('Menu items fetched');
+        res.status(200).json(data); //send the response back to the client
+      }catch {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' }); //send error response
+      }
+    })
+
+
+    app.post('/api/tasks', async (req, res) => {
+      try {
+        const data = req.body; //data aayega toh use req.body se le lenge 
+        const task = new Task(data); //create a new Task document using the mongoose model
+        const response = await task.save(); //save the new task to the database
+        console.log('Task saved');
+        res.status(200).json(data); //send the response back to the client
+      } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' }); //send error response
+      }
+    })
+
+    app.get('/api/tasks', async (req, res) => {
+      try {
+        const data = await Task.find(); //find() method se sabhi tasks ka data mil jayega
+        console.log('Tasks fetched');
+        res.status(200).json(data); //send the response back to the client
+      } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' }); //send error response
+      }
+    })
+    
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000')
