@@ -3,9 +3,12 @@
 const express = require('express')
 const app = express()
 const db = require('./db'); // Import the database connection
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //req.body m daal deta hai data ko, hamme bas use kerna hai.
+const PORT = process.env.PORT || 3000 
+//now why we use 3000 as fault above , what happens is , when we host our node file to any online server than the server gives its own port no. to it & ussi port pe vo run kerta hai, agar port define nhi hoga iska matlb vo local run kerr rha hai toh vo default value m 3000 kodefine kerr dega.
 
 const Person = require('./models/person'); // Import the Person model
 const MenuItem = require('./models/menuItem');
@@ -100,6 +103,8 @@ const personRoutes = require('./routes/personRoutes'); // Import the person rout
 const menuItemRoutes = require('./routes/menuItemRoutes'); // Import the menu item routes
 app.use('/person', personRoutes); // Use the person routes
 app.use('/menu', menuItemRoutes); // Use the menu item routes
+
+
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000')

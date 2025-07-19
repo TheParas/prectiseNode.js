@@ -1,0 +1,6 @@
+#Ignore node_modules directory
+node_modules/ 
+//matlab nodemodules jo folder hai uske ander jitni bhi files hain, usko track kerne ka koi jarurat nhi hai
+
+.env
+#other enteries

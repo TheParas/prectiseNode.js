@@ -1,7 +1,12 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 //define the MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/hotels'; //can use anyname in place of hotel
+//const mongoURL = 'mongodb://localhost:27017/hotels'; //can use anyname in place of hotel
+// const mongoURL = process.ev.MONGODB_URL_LOCAL  //using local database with .env
+const mongoURL = process.env.MONGODB_URL //omline database.(secerat file.ev m pddi hai)
+//now yeh connect nhi ho payega kuunki isko .env file k bare m nhi ptaa.
+
 
 //set up MongoDB connection
 mongoose.connect(mongoURL, {
